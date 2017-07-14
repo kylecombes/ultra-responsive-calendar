@@ -1,0 +1,27 @@
+{
+  "name": "ultra-responsive-calendar",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A highly responsive React calendar view component that can respond to varying screen sizes and display requirements.",
+  "main": "index.jsx",
+  "author": "Kyle Combes",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kylecombes/ultra-responsive-calendar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kylecombes/ultra-responsive-calendar/issues"
+  },
+  "homepage": "https://github.com/kylecombes/ultra-responsive-calendar#readme",
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.10"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
