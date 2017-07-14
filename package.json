@@ -14,6 +14,7 @@
   },
   "homepage": "https://github.com/kylecombes/ultra-responsive-calendar#readme",
   "dependencies": {
+    "moment": "^2.18.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.10"

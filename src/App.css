@@ -1,24 +1,99 @@
-.App {
-  text-align: center;
+* {
+	box-sizing: border-box;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+body {
+	font-family: sans-serif;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+html,
+body,
+#root,
+.urc-body{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
-.App-intro {
-  font-size: large;
+.urc-header {
+	background-color: #dedede;
+	margin: 0;
+	padding: 0;
+	-ms-flex-preferred-size: content;
+	flex-basis: content;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.ultra-responsive-calendar {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+}
+
+.urc-calendar-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.urc-side-labels-container {
+    flex-basis: content;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.urc-side-label {
+    height: 100%;
+    white-space: nowrap;
+    padding: 1em 1em 1em 1.5em;
+    font-size: 1.2em;
+    text-align: right;
+    background-color: #eaeaea;
+    color: gray;
+}
+
+.urc-side-label:not(:first-child) {
+    border-top: 1px solid gray;
+}
+
+.urc-col-container {
+    flex-grow: 1;
+	height: 100%;
+	width: 100%;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: row;
+	flex-direction: row;
+}
+
+.urc-column {
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	height: 100%;
+	padding: 0.2rem;
+	position: relative;
+}
+
+.urc-column:not(:last-child) {
+	border-right: 3px solid #d8d8d8;
+}
+
+.urc-event {
+	background-color: lightblue;
+	margin: 1em 0.5em;
+	padding: 1em;
+	border: 1px solid gray;
+	border-radius: 10px;
+	position: absolute;
+	left: 0;
+	right: 0;
+    min-height: 3em;
 }
