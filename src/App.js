@@ -3,7 +3,7 @@ import './App.css';
 import moment from 'moment';
 import Calendar from './ui-components/calendar.jsx';
 
-export default class App extends Component {
+export default class UltraResponsiveCalendar extends Component {
 
 	constructor(props) {
 		super(props);
