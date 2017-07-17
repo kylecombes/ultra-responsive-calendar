@@ -1,0 +1,132 @@
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: sans-serif;
+}
+
+html,
+body,
+#root,
+.urc-body{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.urc-header {
+	background-color: #dedede;
+	margin: 0;
+	padding: 0;
+	-ms-flex-preferred-size: content;
+	flex-basis: content;
+}
+
+.ultra-responsive-calendar {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+}
+
+.urc-calendar-container {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	width: 100%;
+	height: 100%;
+}
+
+.urc-side-labels-container {
+	-ms-flex-preferred-size: content;
+	flex-basis: content;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	height: 100%;
+}
+
+.urc-side-label {
+	height: 100%;
+	white-space: nowrap;
+	padding: 1em 1em 1em 1.5em;
+	font-size: 1.2em;
+	text-align: right;
+	background-color: #eaeaea;
+	color: gray;
+}
+
+.urc-side-label:not(:first-child) {
+	border-top: 1px solid gray;
+}
+
+.urc-col-container {
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	height: 100%;
+	width: 100%;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	overflow: hidden;
+}
+
+.urc-column {
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	height: 100%;
+	padding: 0.2rem;
+	position: relative;
+}
+
+.urc-column:not(:last-child) {
+	border-right: 3px solid #d8d8d8;
+}
+
+.urc-event {
+	background-color: lightblue;
+	padding: 1em;
+	position: absolute;
+	left: 0;
+	right: 0;
+	min-height: 3em;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+}
+
+.urc-event-contents {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.urc-event-contents .urc-event-title {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.urc-event-contents .urc-event-options-container {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.urc-event-contents .urc-event-options-container > *:not(:last-child) {
+	margin-right: 1em;
+}
+
+.urc-column:nth-of-type(2) .urc-event:not(:hover) .urc-event-options-container {
+	display: none;
+}

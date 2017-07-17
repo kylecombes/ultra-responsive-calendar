@@ -1,1 +1,1 @@
-exports.UltraResponsiveCalendar = require('../lib/App.js');
+exports.UltraResponsiveCalendar = require('../lib/App');
