@@ -19,16 +19,16 @@ export default class Calendar extends React.Component {
             let end = moment();
             start.add(startOffset, 'h');
             end.add(startOffset+1, 'h');
-            let event = new CalendarEvent('Testing '+i, start, end);
+            let event = new CalendarEvent(i, 'Testing '+i, start, end, '/view/'+i, '/edit/'+i);
             events.push(event);
             startOffset += 4;
         }
 
         let start = moment();
         let end = moment();
-        start.add(1.5, 'h');
-        end.add(2.5, 'h');
-        events.push(new CalendarEvent('Offset event', start, end));
+        start.add(1.75, 'h');
+        end.add(2.75, 'h');
+        events.push(new CalendarEvent(200, 'Offset event', start, end, '/view/200', '/edit/200'));
 
         this.state = {eventCollection: new EventCollection(events)};
     }

@@ -13,7 +13,7 @@ export default class App extends Component {
 
 	render() {
 
-        let headerContent = <div><h1>Olin Events</h1></div>;
+        let headerContent = <div><h1 style={{marginLeft: "1em"}}>Olin Events</h1></div>;
         let startHour = 9;
         let endHour = 24;
 

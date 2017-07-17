@@ -1,4 +1,5 @@
 import * as React from 'react';
+import EventBox from './event-box.jsx';
 
 export default class CalendarColumn extends React.Component {
 
@@ -31,9 +32,8 @@ export default class CalendarColumn extends React.Component {
             let event = this.props.events[i];
             let startPos = event.getStartPos(this.props.dayStartHour, hoursInDay);
             let endPos = event.getEndPos(this.props.dayEndHour, hoursInDay);
-            let style = {top: startPos, bottom: endPos};
-            let eventElem = <div className="urc-event" key={i} style={style} >{event.name}</div>;
-            events.push(eventElem);
+            let styles = {top: startPos, bottom: endPos};
+            events.push(<EventBox event={event} styles={styles} key={i}/>);
         }
 
         return (

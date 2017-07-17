@@ -1,12 +1,15 @@
-import moment from 'moment';
+// import moment from 'moment';
 
 export default class CalendarEvent {
 
-    constructor(name, start, end) {
+    constructor(id, name, start, end, view_url, edit_url) {
 
+        this.id = id;
         this.name = name;
         this.start = start;
         this.end = end;
+        this.view_url = view_url;
+        this.edit_url = edit_url;
 
 
         this.getStartPos = this.getStartPos.bind(this);
