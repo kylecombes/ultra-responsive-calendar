@@ -2,8 +2,8 @@ import * as React from "react";
 import moment from "moment";
 import SideLabel from "./side-label.jsx";
 import CalendarColumn from "./column.jsx";
-const CalendarEvent = require("../models/calendar-event").default;
-const EventCollection = require("../models/calendar-event-collection").default;
+const CalendarEvent = require("../models/calendar-event.jsx").default;
+const EventCollection = require("../models/calendar-event-collection.jsx").default;
 
 export default class Calendar extends React.Component {
 

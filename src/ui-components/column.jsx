@@ -1,5 +1,5 @@
 import * as React from 'react';
-import EventBox from './event-box';
+import EventBox from './event-box.jsx';
 
 export default class CalendarColumn extends React.Component {
 

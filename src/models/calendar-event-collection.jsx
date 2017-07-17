@@ -1,5 +1,5 @@
 import moment from 'moment';
-import Event from './calendar-event-collection';
+import Event from './calendar-event-collection.jsx';
 
 export default class EventCollection {
 
