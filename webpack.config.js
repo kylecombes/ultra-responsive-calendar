@@ -31,8 +31,5 @@ module.exports = {
                 loader: 'style-loader!css-loader'
             },
         ]
-    },
-    externals: {
-        'react': 'commonjs react' // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
     }
 };

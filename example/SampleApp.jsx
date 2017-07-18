@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import moment from 'moment';
 import UltraResponsiveCalendar from '../src/ultra-responsive-calendar.js';
 
@@ -21,3 +22,5 @@ export default class SampleApp extends Component {
     }
 
 }
+
+ReactDOM.render(<SampleApp />, document.getElementById('app'));
