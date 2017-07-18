@@ -13,12 +13,7 @@ module.exports = {
     module: {
         loaders : [
             {
-                test : /\.jsx?/,
-                include : APP_DIR,
-                loader : 'babel-loader'
-            },
-            {
-                test : /\.js?/,
+                test : /\.js?x?/,
                 include : APP_DIR,
                 loader : 'babel-loader'
             },
