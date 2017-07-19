@@ -2,7 +2,7 @@
 
 export default class CalendarEvent {
 
-    constructor(id, name, start, end, view_url, edit_url) {
+    constructor(id, name, start, end, view_url, edit_url, extraData) {
 
         this.id = id;
         this.name = name;
@@ -10,6 +10,7 @@ export default class CalendarEvent {
         this.end = end;
         this.view_url = view_url;
         this.edit_url = edit_url;
+        this.extraData = extraData;
 
 
         this.getStartPos = this.getStartPos.bind(this);
