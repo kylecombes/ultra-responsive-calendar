@@ -2,37 +2,65 @@ import * as React from "react";
 import moment from "moment";
 import SideLabel from "./side-label.jsx";
 import CalendarColumn from "./column.jsx";
-import CalendarEvent from "../models/calendar-event.jsx";
 import EventCollection from "../models/calendar-event-collection.jsx";
 
 export default class Calendar extends React.Component {
 
-    // This is going to be the most awesome, responsive src EVER!!!
-
     constructor(props) {
         super(props);
 
-        let events = [];
-        let startOffset = 0;
-        for (let i = 0; i < 10; ++i) {
-            let start = moment();
-            let end = moment();
-            start.add(startOffset, 'h');
-            end.add(startOffset+1, 'h');
-            let event = new CalendarEvent(i, 'Testing '+i, start, end, '/view/'+i, '/edit/'+i);
-            events.push(event);
-            startOffset += 4;
-        }
+        this.sampleEvents =
+            [
+                {
+                    id: 0,
+                    title: 'Event A',
+                    start: moment().hours(12).minutes(0),
+                    end: moment().hours(15).minutes(0)
+                },
+                {
+                    id: 1,
+                    title: 'Event B',
+                    start: moment().hours(13).minutes(0),
+                    end: moment().hours(16).minutes(0)
+                },
+                {
+                    id: 2,
+                    title: 'Event C',
+                    start: moment().hours(13).minutes(0),
+                    end: moment().hours(13).minutes(30)
+                },
+                {
+                    id: 3,
+                    title: 'Event D',
+                    start: moment().hours(14).minutes(30),
+                    end: moment().hours(18).minutes(0)
+                },
+                {
+                    id: 4,
+                    title: 'Event E',
+                    start: moment().hours(20).minutes(0),
+                    end: moment().hours(23).minutes(55)
+                },
+                {
+                    id: 5,
+                    title: 'Event F',
+                    start: moment().hours(19).minutes(45),
+                    end: moment().hours(21).minutes(0)
+                },
+                {
+                    id: 6,
+                    title: 'Event G',
+                    start: moment().add(1,'d').hours(10).minutes(15),
+                    end: moment().add(1,'d').hours(12).minutes(0)
+                },
+            ];
 
-        let start = moment();
-        let end = moment();
-        start.add(1.75, 'h');
-        end.add(2.75, 'h');
-        events.push(new CalendarEvent(200, 'Offset event', start, end, '/view/200', '/edit/200'));
-
-        this.state = {eventCollection: new EventCollection(events)};
+        this.state = {eventCollection: new EventCollection(props.events || this.sampleEvents)};
     }
 
+    onComponentWillReceiveProps(nextProps) {
+        this.setState({eventCollection: new EventCollection(nextProps.events || this.sampleEvents)});
+    }
 
     render() {
 
@@ -52,9 +80,6 @@ export default class Calendar extends React.Component {
             columns.push(column);
             date.add(1, 'd');
         }
-
-        // Get date range to display
-        // Get events on each day
 
         return (
             <div className="urc-calendar-container">

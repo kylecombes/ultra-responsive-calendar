@@ -5,9 +5,10 @@ const APP_DIR = path.resolve(__dirname, 'src');
 const EXAMPLE_DIR = path.resolve(__dirname, 'example');
 
 module.exports = {
+    devtool:'source-map',
     entry: {
         'build/bundle' : './index.js',
-        'build/SampleApp-bundle': './example/SampleApp.jsx'
+        'build/SampleApp-bundle': './example/SampleApp.jsx',
     },
     output: {
         path: __dirname,
