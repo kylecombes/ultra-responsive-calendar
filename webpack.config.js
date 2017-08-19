@@ -7,7 +7,7 @@ const EXAMPLE_DIR = path.resolve(__dirname, 'example');
 module.exports = {
     devtool:'source-map',
     entry: {
-        'build/bundle' : './index.js',
+        'build/bundle' : './app.js',
         'build/SampleApp-bundle': './example/SampleApp.jsx',
     },
     output: {
