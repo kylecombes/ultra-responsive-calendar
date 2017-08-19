@@ -8,11 +8,11 @@ module.exports = {
     devtool:'source-map',
     entry: {
         'build/bundle' : './src/ultra-responsive-calendar.jsx',
-        'build/SampleApp-bundle': './example/SampleApp.jsx',
     },
     output: {
         path: __dirname,
         filename: '[name].js',
+        library: 'UltraResponsiveCalendar',
     },
     target: 'web',
     module: {
