@@ -31,10 +31,11 @@
     "dev": "webpack-dev-server --progress --inline --colors",
     "deploy": "webpack -p --config=webpack.config.deploy.js",
     "build-js": "webpack -p",
-    "build": "rm -rf build/* && npm run build-js",
+    "build": "npm run clean && npm run build-js",
     "install": "npm run deploy",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "clean": "rm -rf build"
   },
   "devDependencies": {
     "webpack": "^3.3.0"

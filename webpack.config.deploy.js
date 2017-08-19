@@ -1,18 +1,19 @@
 const path = require('path');
 
-const BUILD_DIR = path.resolve(__dirname, 'build');
 const APP_DIR = path.resolve(__dirname, 'src');
 const EXAMPLE_DIR = path.resolve(__dirname, 'example');
 
 module.exports = {
-    devtool:'source-map',
     entry: {
-        'build/bundle' : './src/ultra-responsive-calendar.jsx',
+        'build/bundle' : './app.js',
     },
     output: {
         path: __dirname,
         filename: '[name].js',
         library: 'UltraResponsiveCalendar',
+    },
+    externals: {
+        moment: 'moment',
     },
     target: 'web',
     module: {
