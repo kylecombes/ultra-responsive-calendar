@@ -18,7 +18,7 @@ module.exports = {
     module: {
         loaders : [
             {
-                test : /\.js?x?/,
+                test : /\.jsx?/,
                 include : [APP_DIR, EXAMPLE_DIR],
                 exclude: '/example/build',
                 loader : 'babel-loader',

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import moment from 'moment';
-import UltraResponsiveCalendar from '../src/ultra-responsive-calendar.js';
+import UltraResponsiveCalendar from '../src/ultra-responsive-calendar.jsx';
 
 export default class SampleApp extends Component {
 
