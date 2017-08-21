@@ -4,13 +4,12 @@ const APP_DIR = path.resolve(__dirname, 'src');
 const EXAMPLE_DIR = path.resolve(__dirname, 'example');
 
 module.exports = {
-    entry: {
-        'build/bundle' : './app.js',
-    },
+    entry: './src/app.js',
     output: {
-        path: __dirname,
-        filename: '[name].js',
+        path: path.resolve(__dirname, 'build'),
+        filename: 'ultra-responsive-calendar.js',
         library: 'UltraResponsiveCalendar',
+        libraryTarget: 'umd',
     },
     externals: {
         moment: 'moment',
