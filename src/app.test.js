@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './src/ultra-responsive-calendar';
+import App from './ultra-responsive-calendar';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
