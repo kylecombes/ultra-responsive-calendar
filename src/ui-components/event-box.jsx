@@ -15,6 +15,7 @@ export default class EventBox extends Component {
             <div className={classes} key={this.props.key} style={this.props.styles} >
                 <div className="urc-event-contents">
                     <span className="urc-event-title">{event.title}</span>
+                    <span className="urc-event-location">{event.location}</span>
                     <div className="urc-event-options-container">
                         {viewElement}
                         {editElement}
