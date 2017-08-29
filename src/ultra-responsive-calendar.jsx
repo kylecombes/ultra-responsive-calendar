@@ -11,11 +11,7 @@ export default class UltraResponsiveCalendar extends Component {
                     {this.props.header}
 				</div>
 				<div className="urc-body">
-                    <Calendar
-						numColumns={this.props.numColumns}
-						startDate={this.props.startDate}
-						dayStartHour={this.props.dayStartHour}
-						dayEndHour={this.props.dayEndHour} />
+                    <Calendar {...this.props} />
 				</div>
 			</div>
 		)

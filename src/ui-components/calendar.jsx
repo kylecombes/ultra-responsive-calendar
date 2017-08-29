@@ -72,11 +72,14 @@ export default class Calendar extends React.Component {
         this.state = {eventCollection: new EventCollection(props.events || this.sampleEvents)};
     }
 
-    onComponentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps) {
+        console.log('Calendar receiving props')
         this.setState({eventCollection: new EventCollection(nextProps.events || this.sampleEvents)});
     }
 
     render() {
+
+        if (!this.state.eventCollection) return null;
 
         let columns = [];
 
