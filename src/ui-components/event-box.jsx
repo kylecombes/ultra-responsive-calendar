@@ -22,8 +22,9 @@ export default class EventBox extends Component {
                 ? <a href={event.edit_url} title="Edit event" alt="Edit event details"><span className="urc-event-view">Edit</span></a>
                 : null;
         const classes = "urc-event" + (this.props.className ? ' ' + this.props.className : '');
+        const styles = event.color ? Object.assign({}, this.props.styles, { backgroundColor: event.color }) : this.props.styles;
         return (
-            <div className={classes} key={this.props.key} style={this.props.styles} onClick={this.onClick} >
+            <div className={classes} key={this.props.key} style={styles} onClick={this.onClick} >
                 <div className="urc-event-contents">
                     <span className="urc-event-title">{event.title}</span>
                     <span className="urc-event-location">{event.location}</span>

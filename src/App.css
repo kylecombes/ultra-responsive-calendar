@@ -120,7 +120,7 @@ body,
 }
 
 .urc-column:not(:last-child) {
-	border-right: 3px solid #d8d8d8;
+	border-right: 1px solid #d8d8d8;
 }
 
 .urc-event {
@@ -132,7 +132,7 @@ body,
 	min-height: 3em;
 	color: white;
 	border-radius: 0.6vw;
-	margin: 0.2em;
+	margin: 0 0.2em;
 	box-shadow: 0.2em 0.4em #dedede;
 	transition: all 0.3s ease;
 	cursor: pointer;
