@@ -168,7 +168,7 @@ export default class CalendarColumn extends React.Component {
             if (packingInfo) { // Event is during this time period TODO Better way of doing this
                 let event = this.props.events[packingInfo.id];
                 const [classes, styles] = this.calculateEventBoxClassesStyles(event, packingInfo, hoursInDay*60);
-                events.push(<EventBox event={event} styles={styles} className={classes} key={i}/>);
+                events.push(<EventBox event={event} styles={styles} onClick={this.props.eventClick} className={classes} key={i}/>);
             }
         }
 

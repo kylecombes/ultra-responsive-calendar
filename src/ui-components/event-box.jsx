@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 
 export default class EventBox extends Component {
 
+    constructor(props) {
+        super(props);
+        this.onClick = this.onClick.bind(this);
+    }
+
+    onClick(clickEvent) {
+        if (this.props.onClick) {
+            this.props.onClick(this.props.event, clickEvent);
+        }
+    };
+
     render() {
         let event = this.props.event;
         let viewElement = (event.view_url)
@@ -12,7 +23,7 @@ export default class EventBox extends Component {
                 : null;
         const classes = "urc-event" + (this.props.className ? ' ' + this.props.className : '');
         return (
-            <div className={classes} key={this.props.key} style={this.props.styles} >
+            <div className={classes} key={this.props.key} style={this.props.styles} onClick={this.onClick} >
                 <div className="urc-event-contents">
                     <span className="urc-event-title">{event.title}</span>
                     <span className="urc-event-location">{event.location}</span>
