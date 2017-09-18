@@ -1,23 +1,12 @@
 import * as React from "react";
 import SideLabel from "./side-label.jsx";
 import CalendarColumn from "./column.jsx";
-import EventCollection from "../models/calendar-event-collection.jsx";
 
-export default class Calendar extends React.Component {
-
-    constructor(props) {
-        super(props);
-
-        this.state = {eventCollection: new EventCollection(props.events)};
-    }
-
-    componentWillReceiveProps(nextProps) {
-        this.setState({eventCollection: new EventCollection(nextProps.events)});
-    }
+export default class MultiDayView extends React.Component {
 
     render() {
 
-        if (!this.state.eventCollection) return null;
+        if (!this.props.eventsCollection) return null;
 
         let columns = [];
 
@@ -31,7 +20,7 @@ export default class Calendar extends React.Component {
         }
 
         for (let i = -1; i < this.props.numColumns; ++i) {
-            let events = this.state.eventCollection.getEventsOnDate(date);
+            let events = this.props.eventsCollection.getEventsOnDate(date);
             let column = <CalendarColumn
                             events={events}
                             id={'cal-col-'+i}

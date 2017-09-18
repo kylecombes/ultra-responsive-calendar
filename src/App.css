@@ -43,6 +43,12 @@ body,
 	position: relative;
 }
 
+.urc-body > div {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
 .urc-header {
 	background-color: #dedede;
 	margin: 0;
@@ -85,8 +91,8 @@ body,
 .urc-side-label {
 	height: 100%;
 	white-space: nowrap;
-	padding: 1em 1em 1em 1.5em;
-	font-size: 1.2em;
+	padding: 0.7em 0.7em 0.7em 1em;
+	font-size: 0.8em;
 	text-align: right;
 	/*! background-color: #eaeaea; */
 	color: gray;
@@ -95,9 +101,32 @@ body,
 	user-select: none;
 }
 
-/*.urc-side-label:not(:first-child) {*/
-	/*border-top: 1px solid #b6b6b6;*/
-/*}*/
+.urc-month {
+	display: flex;
+	flex-direction: column;
+}
+
+.urc-month-row {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+}
+
+.urc-month-day {
+	width: 14.28%;
+	border: 1px solid #efefef;
+	position: relative;
+}
+
+.urc-month-day-header {
+	padding: 0.5em 0.7em;
+	color: gray;
+	user-select: none;
+	-moz-user-select: none;
+}
+.urc-month-day.adjacent-month {
+	background-color: #f0f0f0;
+}
 
 .urc-col-container {
 	-ms-flex-positive: 1;
@@ -125,17 +154,32 @@ body,
 
 .urc-event {
 	background-color: #5bccf2;
+	color: white;
+	margin: 0 0.2em;
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+
+.urc-column .urc-event {
+	border-radius: 0.6vw;
 	padding: 0.6vw;
+}
+
+.urc-month-day .urc-event {
+	border-radius: 0.2vw;
+	padding: 0.6em;
+}
+
+.urc-column .urc-event {
 	position: absolute;
 	left: 0;
 	right: 0;
 	min-height: 3em;
-	color: white;
-	border-radius: 0.6vw;
-	margin: 0 0.2em;
 	box-shadow: 0.2em 0.4em #dedede;
-	transition: all 0.3s ease;
-	cursor: pointer;
+}
+
+.urc-month-day .urc-event:not(:last-child) {
+	margin-bottom: 0.1em;
 }
 
 .urc-event:hover {
@@ -151,15 +195,17 @@ body,
 .urc-event-contents .urc-event-title {
 	font-family: 'Montserrat', sans-serif;
 	display: block;
-	margin-bottom: 0.3em;
 	font-weight: 600;
 }
 
-.urc-event-contents .urc-event-location {
-	display: block;
-
+.urc-column .urc-event-title {
+	margin-bottom: 0.3em;
 }
 
+.urc-event-time-location-container > * {
+	display: inline-block;
+	margin: 0.3em 0;
+}
 
 .urc-event-contents .urc-event-options-container {
 	position: absolute;
