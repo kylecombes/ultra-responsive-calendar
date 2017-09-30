@@ -10,6 +10,7 @@ export default class EventBox extends Component {
     onClick(clickEvent) {
         if (this.props.onClick) {
             this.props.onClick(this.props.event, clickEvent);
+            clickEvent.preventDefault();
         }
     }
 

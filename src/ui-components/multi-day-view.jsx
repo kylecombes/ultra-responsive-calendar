@@ -26,7 +26,7 @@ export default class MultiDayView extends React.Component {
                             id={'cal-col-'+i}
                             columnNumber={i}
                             key={i}
-                            eventClick={this.props.eventClick}
+                            onEventClick={this.props.onEventClick}
                             dayStartHour={this.props.dayStartHour}
                             dayEndHour={this.props.dayEndHour} />;
             columns.push(column);

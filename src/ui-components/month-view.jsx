@@ -29,7 +29,7 @@ export default class MonthView extends React.Component {
                 const events = this.props.eventsCollection.getEventsOnDate(date);
                 const children = [];
                 for (let key in events) {
-                    children.push(<EventBox event={events[key]} key={key} showDetails={false}/>);
+                    children.push(<EventBox event={events[key]} key={key} showDetails={false} onClick={this.props.onEventClick}/>);
                 }
                 const dayClass = (this.props.startDate.month() === date.month() ? 'current-month' : 'adjacent-month')
                                     + (date.isSame(today, 'day') ? ' today' : '');
