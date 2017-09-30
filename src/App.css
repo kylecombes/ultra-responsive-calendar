@@ -232,3 +232,11 @@ body,
 .urc-column:nth-of-type(2) .urc-event:not(:hover) .urc-event-options-container {
 	display: none;
 }
+
+.today {
+	background-color: #f0f0f0;
+}
+
+.today.adjacent-month {
+	background-color: #e3e3e3;
+}

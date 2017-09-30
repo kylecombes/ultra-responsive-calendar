@@ -15,6 +15,8 @@ export default class MonthView extends React.Component {
         // Find the last day to display on the month calendar (likely a day next month)
         const lastDay = moment(this.props.startDate).date(0).add(1, 'M').subtract(1, 'd');
 
+        const today = moment();
+
         const rows = [];
         const numWeeks = lastDay.diff(firstDay, 'weeks');
 
@@ -29,7 +31,8 @@ export default class MonthView extends React.Component {
                 for (let key in events) {
                     children.push(<EventBox event={events[key]} key={key} showDetails={false}/>);
                 }
-                const dayClass = this.props.startDate.month() === date.month() ? 'current-month' : 'adjacent-month';
+                const dayClass = (this.props.startDate.month() === date.month() ? 'current-month' : 'adjacent-month')
+                                    + (date.isSame(today, 'day') ? ' today' : '');
                 rowChildren.push(<MonthDay dayOfMonth={date.format('D')} className={dayClass} key={dayNum}>{children}</MonthDay>);
                 date.add(1, 'day');
             }
