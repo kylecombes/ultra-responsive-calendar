@@ -106,6 +106,18 @@ body,
 	flex-direction: column;
 }
 
+.urc-multi-day-header {
+	display: flex;
+	flex-direction: row;
+}
+
+.urc-multi-day-header > span {
+	flex: 1 1 auto;
+	text-align: center;
+	padding: 0.5em;
+	color: #aaa;
+	font-weight: bold;
+}
 .urc-month-row {
 	display: flex;
 	flex-direction: row;

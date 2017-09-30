@@ -7,7 +7,11 @@ export default class MonthDay extends React.Component {
         return (
             <div className={className}>
                 <div className="urc-month-day-header">{this.props.dayOfMonth}</div>
-                <div className="urc-month-day-content">{this.props.children}</div>
+                <div className="urc-month-day-content-container">
+                    <div className="urc-month-day-container">
+                        {this.props.children}
+                    </div>
+                </div>
             </div>
         )
     }
