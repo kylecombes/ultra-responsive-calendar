@@ -16,10 +16,10 @@ export default class MultiDayView extends React.Component {
         const hoursInDay = this.props.dayEndHour - this.props.dayStartHour;
         let horzLines = [];
         for (let i = 0; i < hoursInDay; ++i) {
-            horzLines.push(<div className="urc-horizontal-line"/>);
+            horzLines.push(<div key={i} className="urc-horizontal-line"/>);
         }
 
-        for (let i = -1; i < this.props.numColumns; ++i) {
+        for (let i = 0; i < this.props.days; ++i) {
             let events = this.props.eventsCollection.getEventsOnDate(date);
             let column = <CalendarColumn
                             events={events}
@@ -39,7 +39,7 @@ export default class MultiDayView extends React.Component {
                     {horzLines}
                 </div>
                 <SideLabel startHour={this.props.dayStartHour} endHour={this.props.dayEndHour}/>
-                <div className={"urc-col-container urc-"+this.props.numColumns+"-col"}>
+                <div className={"urc-col-container urc-"+this.props.days+"-col"}>
                     {columns}
                 </div>
             </div>

@@ -121,7 +121,7 @@ body,
 .urc-month-row {
 	display: flex;
 	flex-direction: row;
-	flex-grow: 1;
+	flex: 1;
 }
 
 .urc-month-day {
@@ -179,7 +179,7 @@ body,
 
 .urc-month-day .urc-event {
 	border-radius: 0.2vw;
-	padding: 0.6em;
+	padding: 0.4em 0.6em;
 }
 
 .urc-column .urc-event {
@@ -207,7 +207,11 @@ body,
 .urc-event-contents .urc-event-title {
 	font-family: 'Montserrat', sans-serif;
 	display: block;
+	font-size: 0.8em;
 	font-weight: 600;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .urc-column .urc-event-title {

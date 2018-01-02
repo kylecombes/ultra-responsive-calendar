@@ -81,15 +81,16 @@ export default class UltraResponsiveCalendar extends Component {
 
     	let body;
 
-    	if (this.props.viewType && this.props.viewType !== 'month') {
-    		switch (this.props.viewType) {
-				case 'multi-day':
-					body = <MultiDayView eventsCollection={this.state.eventCollection} {...this.props} />;
-					break;
-			}
-		} else {
-    		body = <MonthView eventsCollection={this.state.eventCollection} {...this.props} />;
-		}
+    	const viewMode = this.props.viewType || 'month';
+
+        switch (this.props.viewType) {
+            case 'month':
+                body = <MonthView eventsCollection={this.state.eventCollection} {...this.props} />;
+                break;
+            case 'multi-day':
+                body = <MultiDayView eventsCollection={this.state.eventCollection} {...this.props} />;
+                break;
+        }
 
 		return (
 			<div className="ultra-responsive-calendar">

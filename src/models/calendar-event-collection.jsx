@@ -13,7 +13,7 @@ export default class EventCollection {
         let matchingEvents = {};
         for (let i = 0; i < this.events.length; ++i) {
             let event = this.events[i];
-            if (event.start.dayOfYear() === date.dayOfYear() && event.start.year() === date.year())
+            if (event.start.isSame(date, 'day'))
                 matchingEvents[event.id] = event;
         }
         return matchingEvents;
