@@ -99,6 +99,7 @@ body,
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	width: 4em;
 }
 
 .urc-month {
@@ -109,6 +110,7 @@ body,
 .urc-multi-day-header {
 	display: flex;
 	flex-direction: row;
+	margin-left: 4em;
 }
 
 .urc-multi-day-header > span {

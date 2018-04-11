@@ -1,6 +1,10 @@
 import * as React from "react";
+import moment from 'moment';
 import SideLabel from "./side-label.jsx";
 import CalendarColumn from "./column.jsx";
+import PropTypes from 'prop-types';
+import EventCollection from '../models/calendar-event-collection';
+import MultiDayHeader from './multi-day-header';
 
 export default class MultiDayView extends React.Component {
 
@@ -10,7 +14,7 @@ export default class MultiDayView extends React.Component {
 
         let columns = [];
 
-        let date = this.props.startDate;
+        let date = moment(this.props.startDate);
 
         // Generate horizontal grid lines for the hour marks
         const hoursInDay = this.props.dayEndHour - this.props.dayStartHour;
@@ -33,17 +37,39 @@ export default class MultiDayView extends React.Component {
             date.add(1, 'd');
         }
 
-        return (
-            <div className="urc-calendar-container">
-                <div className="urc-horizontal-lines-container">
-                    {horzLines}
-                </div>
-                <SideLabel startHour={this.props.dayStartHour} endHour={this.props.dayEndHour}/>
-                <div className={"urc-col-container urc-"+this.props.days+"-col"}>
-                    {columns}
-                </div>
+      return (
+        <div className="urc-calendar-super-container">
+          {this.props.days > 1 && this.props.showHeader &&
+            <MultiDayHeader startingDay={this.props.startDate} days={this.props.days}/>}
+          <div className="urc-calendar-container">
+            <div className="urc-horizontal-lines-container">
+              {horzLines}
             </div>
-        )
+            <SideLabel startHour={this.props.dayStartHour} endHour={this.props.dayEndHour}/>
+            <div className={"urc-col-container urc-"+this.props.days+"-col"}>
+              {columns}
+            </div>
+          </div>
+        </div>
+      );
     }
 
 }
+
+MultiDayView.propTypes = {
+  eventsCollection: PropTypes.instanceOf(EventCollection),
+  dayStartHour: PropTypes.number,
+  dayEndHour: PropTypes.number,
+  days: PropTypes.number,
+  onEventClick: PropTypes.func.isRequired,
+  showHeader: PropTypes.bool,
+  startDate: PropTypes.instanceOf(moment),
+};
+
+MultiDayView.defaultProps = {
+  dayStartHour: 8,
+  dayEndHour: 10,
+  days: 7,
+  showHeader: true,
+  startDate: moment(),
+};
