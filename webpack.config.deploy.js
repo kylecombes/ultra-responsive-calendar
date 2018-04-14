@@ -21,10 +21,7 @@ module.exports = {
                 test : /\.jsx?/,
                 include : [APP_DIR, EXAMPLE_DIR],
                 exclude: '/example/build',
-                loader : 'babel-loader',
-                query: {
-                    presets: ['es2015', 'react']
-                }
+                loader : 'babel-loader'
             },
             {
                 test: /\.css$/,
