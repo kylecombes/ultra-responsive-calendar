@@ -17,11 +17,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        use: ["source-map-loader"],
-        enforce: "pre"
-      },
-      {
         test: /\.jsx?/,
         include: [APP_DIR, EXAMPLE_DIR],
         exclude: '/example/build',
