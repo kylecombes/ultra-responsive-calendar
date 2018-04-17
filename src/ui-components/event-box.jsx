@@ -35,7 +35,7 @@ export default class EventBox extends Component {
             </div>
         ) : null;
         return (
-            <div className={classes} key={this.props.key} style={styles} onClick={this.onClick} >
+            <div className={classes} style={styles} onClick={this.onClick} >
                 <div className="urc-event-contents">
                     <span className="urc-event-title">{event.title}</span>
                     {timeLocation}

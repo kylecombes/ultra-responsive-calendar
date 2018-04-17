@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import '../src/App.css';
 import MultiDayView from './ui-components/multi-day-view.jsx';
 import MonthView from './ui-components/month-view.jsx';
@@ -83,21 +84,19 @@ export default class UltraResponsiveCalendar extends Component {
 
     	let body;
 
-    	const viewMode = this.props.viewType || 'month';
-
         switch (this.props.viewType) {
             case 'month':
-                body = <MonthView eventsCollection={this.state.eventCollection} {...this.props} />;
+                body = <MonthView eventsCollection={this.state.eventCollection} {...this.props} headerFormat={this.props.dayHeaderFormat} />;
                 break;
             case 'multi-day':
-                body = <MultiDayView eventsCollection={this.state.eventCollection} {...this.props} />;
+                body = <MultiDayView eventsCollection={this.state.eventCollection} {...this.props} headerFormat={this.props.dayHeaderFormat} />;
                 break;
         }
 
 		return (
 			<div className="ultra-responsive-calendar">
 				<div className="urc-header">
-                    {this.props.header}
+            {this.props.header}
 				</div>
 				<div className="urc-body">
 					{body}
@@ -107,3 +106,13 @@ export default class UltraResponsiveCalendar extends Component {
 	}
 
 }
+
+UltraResponsiveCalendar.propTypes = {
+  dayHeaderFormat: PropTypes.string,
+  events: PropTypes.array,
+  viewType: PropTypes.string,
+};
+
+UltraResponsiveCalendar.defaultProps = {
+  viewType: 'month',
+};

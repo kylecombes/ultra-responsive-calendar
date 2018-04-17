@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import EventBox from './event-box.jsx';
 import MonthDay from './month-day.jsx'
@@ -17,7 +18,6 @@ export default class MonthView extends React.Component {
 
         const today = moment();
 
-        const rows = [];
         const numWeeks = lastDay.diff(firstDay, 'weeks');
 
         const date = moment(firstDay);
@@ -49,3 +49,15 @@ export default class MonthView extends React.Component {
     }
 
 }
+
+MonthView.propTypes = {
+  headerFormat: PropTypes.string,
+  onEventClick: PropTypes.func,
+  startDate: PropTypes.instanceOf(moment),
+};
+
+MonthView.defaultProps = {
+  headerFormat: 'ddd',
+  onEventClick: () => {},
+  startDate: moment(),
+};

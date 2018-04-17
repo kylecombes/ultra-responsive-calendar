@@ -40,7 +40,12 @@ export default class MultiDayView extends React.Component {
       return (
         <div className="urc-calendar-super-container">
           {this.props.days > 1 && this.props.showHeader &&
-            <MultiDayHeader startingDay={this.props.startDate} days={this.props.days}/>}
+            <MultiDayHeader
+              startingDay={this.props.startDate}
+              days={this.props.days}
+              format={this.props.headerFormat}
+              marginLeft="4rem"
+            />}
           <div className="urc-calendar-container">
             <div className="urc-horizontal-lines-container">
               {horzLines}
@@ -63,6 +68,7 @@ MultiDayView.propTypes = {
   days: PropTypes.number,
   onEventClick: PropTypes.func.isRequired,
   showHeader: PropTypes.bool,
+  headerFormat: PropTypes.string,
   startDate: PropTypes.instanceOf(moment),
 };
 
@@ -71,5 +77,6 @@ MultiDayView.defaultProps = {
   dayEndHour: 10,
   days: 7,
   showHeader: true,
+  headerFormat: 'ddd M/D',
   startDate: moment(),
 };

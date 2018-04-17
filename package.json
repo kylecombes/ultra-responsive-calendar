@@ -1,6 +1,6 @@
 {
   "name": "ultra-responsive-calendar",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "A highly responsive React calendar view component that can respond to varying screen sizes and display requirements.",
   "main": "build/ultra-responsive-calendar.js",

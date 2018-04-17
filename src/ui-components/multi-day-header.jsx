@@ -9,12 +9,16 @@ export default class MultiDayHeader extends React.Component {
     const day = moment(this.props.startingDay);
 
     for (let i = 0; i < this.props.days; ++i) {
-      titles.push(<span key={i}>{day.format('ddd')}</span>);
+      titles.push(<span key={i}>{day.format(this.props.format)}</span>);
       day.add(1, 'd');
     }
 
+    const styles = {
+      marginLeft: this.props.marginLeft,
+    };
+
     return (
-      <div className="urc-multi-day-header">
+      <div className="urc-multi-day-header" style={styles}>
         {titles}
       </div>
     )
@@ -25,9 +29,13 @@ export default class MultiDayHeader extends React.Component {
 MultiDayHeader.propTypes = {
   days: PropTypes.number,
   startingDay: PropTypes.instanceOf(moment),
+  format: PropTypes.string,
+  marginLeft: PropTypes.string,
 };
 
 MultiDayHeader.defaultProps = {
   days: 7,
   startingDay: moment(),
+  format: 'ddd',
+  marginLeft: '0',
 };
