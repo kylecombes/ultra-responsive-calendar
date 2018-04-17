@@ -74,7 +74,9 @@ export default class UltraResponsiveCalendar extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
+      if (nextProps.events) {
         this.setState({eventCollection: new EventCollection(nextProps.events)});
+      }
     }
 
 	render() {
