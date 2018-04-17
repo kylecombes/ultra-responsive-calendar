@@ -27,6 +27,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.10",
+    "source-map-loader": "^0.2.3",
     "style-loader": "^0.18.2"
   },
   "scripts": {
@@ -41,7 +42,6 @@
     "clean": "rm -rf build"
   },
   "devDependencies": {
-    "source-map-loader": "^0.2.3",
     "webpack": "^3.3.0"
   }
 }
