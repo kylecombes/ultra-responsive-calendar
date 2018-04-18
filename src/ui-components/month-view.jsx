@@ -12,9 +12,9 @@ export default class MonthView extends React.Component {
         if (!this.props.eventsCollection) return;
 
         // Find the first day to display on the month calendar (likely a day last month)
-        const firstDay = moment(this.props.startDate).date(0).day(0);
+        const firstDay = moment(this.props.startDate).date(1).day(0);
         // Find the last day to display on the month calendar (likely a day next month)
-        const lastDay = moment(this.props.startDate).date(0).add(1, 'M').subtract(1, 'd');
+        const lastDay = moment(this.props.startDate).date(1).add(1, 'M').subtract(1, 'd');
 
         const today = moment();
 
