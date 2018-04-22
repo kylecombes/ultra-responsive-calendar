@@ -177,6 +177,21 @@ body,
 	cursor: pointer;
 }
 
+.urc-column .urc-event.extends-before-viewport {
+	border-top-left-radius: 0;
+	-moz-border-radius-topleft: 0;
+	border-top-right-radius: 0;
+	-moz-border-radius-topright: 0;
+	padding-top: 1.6vh;
+}
+
+.urc-column .urc-event.extends-after-viewport {
+	border-bottom-left-radius: 0;
+	-moz-border-radius-bottomleft: 0;
+	border-bottom-right-radius: 0;
+	-moz-border-radius-bottomright: 0;
+}
+
 .urc-column .urc-event {
 	border-radius: 0.6vw;
 	padding: 0.6vw;

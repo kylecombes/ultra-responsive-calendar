@@ -133,8 +133,8 @@ export default class CalendarColumn extends React.Component {
 
     calculateEventBoxClassesStyles(event, packingInfo, minutesInDay) {
         const classes = [];
-        const top = this.getStartPos(event, this.props.dayStartHour*60, minutesInDay);
-        const bottom = this.getEndPos(event, this.props.dayEndHour*60, minutesInDay);
+        let top = this.getStartPos(event, this.props.dayStartHour*60, minutesInDay);
+        let bottom = this.getEndPos(event, this.props.dayEndHour*60, minutesInDay);
 
         // Calculate CSS classes
         if (top === 0)
@@ -145,11 +145,23 @@ export default class CalendarColumn extends React.Component {
             classes.push('against-left');
         if (packingInfo.right === 0)
             classes.push('against-right');
+        if (top < 0) {
+            classes.push('extends-before-viewport');
+            top = '-1vh';
+        } else {
+            top = `${top}%`;
+        }
+        if (bottom < 0) {
+            classes.push('extends-after-viewport');
+            bottom = '-1vh';
+        } else {
+            bottom = `${bottom}%`;
+        }
 
         // Calculate inline styles
         const styles = {
-            top: `${top}%`,
-            bottom: `${bottom}%`,
+            top: top,
+            bottom: bottom,
             left: `${packingInfo.left}%`,
             right: `${packingInfo.right}%`,
         };
