@@ -12,8 +12,72 @@ export default class SampleApp extends Component {
             selectedMode: 'month',
             viewMode: 'month',
             multiViewDays: 0,
-
-        }
+            events: [
+              {
+                id: 0,
+                title: 'Event A',
+                location: 'MH 203',
+                start: moment().hours(12).minutes(0),
+                end: moment().hours(15).minutes(0)
+              },
+              {
+                id: 1,
+                title: 'Event B',
+                location: 'Newton, MA',
+                start: moment().hours(34).minutes(0),
+                end: moment().hours(38).minutes(0)
+              },
+              {
+                id: 2,
+                title: 'Event C',
+                location: 'AC306',
+                start: moment().hours(13).minutes(0),
+                allDay: true,
+              },
+              {
+                id: 3,
+                title: 'Event D',
+                location: 'Great Lawn',
+                start: moment().hours(36).minutes(30),
+                end: moment().hours(40).minutes(0)
+              },
+              {
+                id: 7,
+                title: 'Event I',
+                location: 'DH',
+                start: moment().hours(16).minutes(30),
+                end: moment().hours(17).minutes(0)
+              },
+              {
+                id: 4,
+                title: 'Event E',
+                location: 'Newton, MA',
+                start: moment().hours(20).minutes(0),
+                end: moment().hours(23).minutes(55)
+              },
+              {
+                id: 5,
+                title: 'Event F',
+                location: 'WH2AL',
+                start: moment().hours(19).minutes(45),
+                end: moment().hours(21).minutes(0)
+              },
+              {
+                id: 6,
+                title: 'Event G',
+                location: '12 Mass Turnpike',
+                start: moment().add(1,'d').hours(10).minutes(15),
+                end: moment().add(1,'d').hours(12).minutes(0)
+              },
+              {
+                id: 7,
+                title: 'Event H',
+                location: 'O',
+                start: moment().add(2,'d').hours(0).minutes(15),
+                end: moment().add(2,'d').hours(23).minutes(0)
+              },
+            ],
+    };
         this.modeChange = this.modeChange.bind(this);
     }
 

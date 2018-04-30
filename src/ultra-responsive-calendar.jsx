@@ -11,67 +11,7 @@ export default class UltraResponsiveCalendar extends Component {
     constructor(props) {
         super(props);
 
-        this.sampleEvents =
-            [
-                {
-                    id: 0,
-                    title: 'Event A',
-                    location: 'MH 203',
-                    start: moment().hours(12).minutes(0),
-                    end: moment().hours(15).minutes(0)
-                },
-                {
-                    id: 1,
-                    title: 'Event B',
-                    location: 'Newton, MA',
-                    start: moment().hours(34).minutes(0),
-                    end: moment().hours(38).minutes(0)
-                },
-                {
-                    id: 2,
-                    title: 'Event C',
-                    location: 'AC306',
-                    start: moment().hours(13).minutes(0),
-                    end: moment().hours(13).minutes(30)
-                },
-                {
-                    id: 3,
-                    title: 'Event D',
-                    location: 'Great Lawn',
-                    start: moment().hours(36).minutes(30),
-                    end: moment().hours(40).minutes(0)
-                },
-                {
-                    id: 7,
-                    title: 'Event I',
-                    location: 'DH',
-                    start: moment().hours(16).minutes(30),
-                    end: moment().hours(17).minutes(0)
-                },
-                {
-                    id: 4,
-                    title: 'Event E',
-                    location: 'Newton, MA',
-                    start: moment().hours(20).minutes(0),
-                    end: moment().hours(23).minutes(55)
-                },
-                {
-                    id: 5,
-                    title: 'Event F',
-                    location: 'WH2AL',
-                    start: moment().hours(19).minutes(45),
-                    end: moment().hours(21).minutes(0)
-                },
-                {
-                    id: 6,
-                    title: 'Event G',
-                    location: '12 Mass Turnpike',
-                    start: moment().add(1,'d').hours(10).minutes(15),
-                    end: moment().add(1,'d').hours(12).minutes(0)
-                },
-            ];
-
-        this.state = {eventCollection: new EventCollection(props.events || this.sampleEvents)};
+        this.state = {eventCollection: new EventCollection(props.events)};
     }
 
     componentWillReceiveProps(nextProps) {
@@ -108,11 +48,24 @@ export default class UltraResponsiveCalendar extends Component {
 }
 
 UltraResponsiveCalendar.propTypes = {
-  dayHeaderFormat: PropTypes.string,
   events: PropTypes.array,
+  header: PropTypes.element,
+  days: PropTypes.number,
+  startDate: PropTypes.instanceOf(moment),
+  dayStartHour: PropTypes.number,
+  dayEndHour: PropTypes.number,
+  onEventClick: PropTypes.func,
+  timezone: PropTypes.string,
   viewType: PropTypes.string,
 };
 
 UltraResponsiveCalendar.defaultProps = {
+  events: [],
+  days: 7,
+  startDate: moment(),
+  dayStartHour: 8,
+  dayEndHour: 22,
+  onEventClick: () => {},
+  timezone: 'America/New_York',
   viewType: 'month',
 };
