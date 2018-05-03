@@ -26,14 +26,17 @@ export default class MonthView extends React.Component {
         for (let weekNum = 0; weekNum <= numWeeks; ++weekNum) {
             const rowChildren = [];
             for (let dayNum = 0; dayNum < 7; ++dayNum) {
-                const events = this.props.eventsCollection.getEventsOnDate(date);
-                const children = [];
-                for (let key in events) {
-                    children.push(<EventBox event={events[key]} key={key} showDetails={false} onClick={this.props.onEventClick}/>);
-                }
+                const events = this.props.eventsCollection.getEventsOnDate(date).map(event => (
+                  <EventBox
+                    event={event}
+                    key={event.id}
+                    showDetails={false}
+                    onClick={this.props.onEventClick}
+                  />
+                ));
                 const dayClass = (this.props.startDate.month() === date.month() ? 'current-month' : 'adjacent-month')
                                     + (date.isSame(today, 'day') ? ' today' : '');
-                rowChildren.push(<MonthDay dayOfMonth={date.format('D')} className={dayClass} key={dayNum}>{children}</MonthDay>);
+                rowChildren.push(<MonthDay dayOfMonth={date.format('D')} className={dayClass} key={dayNum}>{events}</MonthDay>);
                 date.add(1, 'day');
             }
             weeks.push(<div className="urc-month-row" key={weekNum}>{rowChildren}</div>);

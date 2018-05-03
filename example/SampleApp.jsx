@@ -135,6 +135,7 @@ export default class SampleApp extends Component {
                 dayEndHour={endHour}
                 onEventClick={this.onEventClick}
                 viewType={this.state.viewMode}
+                events={this.state.events}
             />
         )
     }

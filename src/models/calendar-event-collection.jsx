@@ -10,12 +10,16 @@ export default class EventCollection {
 
     getEventsOnDate(date) {
 
-        let matchingEvents = {};
+        let matchingEvents = [];
         for (let i = 0; i < this.events.length; ++i) {
             let event = this.events[i];
             if (event.start.isSame(date, 'day'))
-                matchingEvents[event.id] = event;
+                matchingEvents.push(event);
         }
+
+        // Sort events by start time
+        matchingEvents.sort((a, b) => a.start.diff(b.start));
+
         return matchingEvents;
     }
 

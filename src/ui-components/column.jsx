@@ -25,15 +25,13 @@ export default class CalendarColumn extends React.Component {
     calculatePacking(events, dayStartMinute, dayEndMinute, minutesPerPeriod) {
         const maxWidthEachEvent = {};
 
-        const eventsChronological = Object.values(events).sort((a,b) => 60*(a.start.hours()-b.start.hours()) + (a.start.minutes()-b.start.minutes()));
-
         // Determine the info for each time period
         const periods = [];
         const numPeriods = (dayEndMinute - dayStartMinute) / minutesPerPeriod;
         for (let i = 0; i <= numPeriods; ++i) {
             const periodStartMinute = dayStartMinute + i * minutesPerPeriod;
             const periodEndMinute = periodStartMinute + minutesPerPeriod;
-            const eventsThisPeriod = this.eventsOccurringDuringPeriod(eventsChronological, maxWidthEachEvent, periodStartMinute, periodEndMinute, i);
+            const eventsThisPeriod = this.eventsOccurringDuringPeriod(events, maxWidthEachEvent, periodStartMinute, periodEndMinute, i);
             periods.push({
                 startMinute: periodStartMinute,
                 endMinute: periodEndMinute,
