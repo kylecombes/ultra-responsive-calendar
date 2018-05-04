@@ -47,7 +47,7 @@ export default class MultiDayView extends React.Component {
               marginLeft="4rem"
             />}
           <div className="urc-calendar-container">
-            <div className="urc horizontal-lines-container">
+            <div className="horizontal-lines-container">
               {horzLines}
             </div>
             <SideLabel startHour={this.props.dayStartHour} endHour={this.props.dayEndHour}/>
