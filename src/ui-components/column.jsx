@@ -126,13 +126,13 @@ export default class CalendarColumn extends React.Component {
             classes.push('against-right');
         if (top < 0) {
             classes.push('extends-before-viewport');
-            top = '-1vh';
+            top = '-1em';
         } else {
             top = `${top}%`;
         }
         if (bottom < 0) {
             classes.push('extends-after-viewport');
-            bottom = '-1vh';
+            bottom = '-1em';
         } else {
             bottom = `${bottom}%`;
         }
