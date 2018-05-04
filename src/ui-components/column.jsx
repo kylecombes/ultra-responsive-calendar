@@ -3,25 +3,6 @@ import EventBox from './event-box.jsx';
 
 export default class CalendarColumn extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {classes: this.getClasses(props)};
-    }
-
-    componentWillReceiveProps(nextProps) {
-        this.setState({classes: this.getClasses(nextProps)});
-    }
-
-    getClasses(props) {
-        let classes = ['urc-column'];
-        if (props) {
-            classes.push('col-num-' + props.columnNumber);
-            Object.assign(classes, props.classes);
-        }
-        return classes;
-    }
-
     calculatePacking(events, dayStartMinute, dayEndMinute, minutesPerPeriod) {
         const maxWidthEachEvent = {};
 
@@ -100,7 +81,7 @@ export default class CalendarColumn extends React.Component {
                 }
                 event.endPeriodIndex = periodIndex;
                 // Event occurs during this period, so add it to our list
-                eventsDuringPeriod.push(event.id);
+                eventsDuringPeriod.push(i);
             }
         }
 
@@ -182,8 +163,13 @@ export default class CalendarColumn extends React.Component {
             }
         }
 
+        let className = `urc-column col-num-${this.props.columnNumber}`;
+        if (this.props.className) {
+            className += ' ' + this.props.className;
+        }
+
         return (
-            <div id={this.props.id} className={this.state.classes.join(' ')}>
+            <div id={this.props.id} className={className}>
                 {events}
             </div>
         )

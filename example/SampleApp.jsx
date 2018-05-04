@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import moment from 'moment';
 import UltraResponsiveCalendar from '../src/ultra-responsive-calendar.jsx';
 
-export default class SampleApp extends Component {
+class SampleApp extends Component {
 
     constructor(props) {
         super(props);
@@ -32,6 +32,7 @@ export default class SampleApp extends Component {
                 title: 'Event C',
                 location: 'AC306',
                 start: moment().hours(13).minutes(0),
+                end: moment().hours(13).minutes(30),
                 allDay: true,
               },
               {
@@ -78,14 +79,13 @@ export default class SampleApp extends Component {
               },
             ],
     };
-        this.modeChange = this.modeChange.bind(this);
     }
 
-    onEventClick(calendarEvent, clickEvent) {
+    onEventClick = (calendarEvent, clickEvent) => {
         console.log(calendarEvent.title + ' clicked');
     };
 
-    modeChange(event) {
+    modeChange = (event) => {
         switch (event.target.value) {
             case 'month':
                 this.setState({selectedMode: 'month', viewMode: 'month', multiViewDays: 0});
@@ -104,13 +104,17 @@ export default class SampleApp extends Component {
                 break;
 
         }
-    }
+    };
 
     render() {
+        let startHour = 9;
+        let endHour = 24;
 
-        let headerContent = <div>
-            <h1 style={{marginLeft: "1em", display: 'inline-block'}}>Olin Events</h1>
-            <form name="urc-sample-header-view-toggle">
+        return (
+          <div className="main-container">
+            <div className="header">
+              <h1 style={{marginLeft: "1em", display: 'inline-block'}}>Olin Events</h1>
+              <form name="urc-sample-header-view-toggle">
                 <input id="urc-view-month" type="radio" name="view" value="month" onChange={this.modeChange} checked={this.state.selectedMode === 'month'}/>
                 <label htmlFor="urc-view-month">Month</label>
                 <input id="urc-view-week" type="radio" name="view" value="week" onChange={this.modeChange} checked={this.state.selectedMode === 'week'}/>
@@ -121,14 +125,9 @@ export default class SampleApp extends Component {
                 <label htmlFor="urc-view-1-day">1 Day</label>
                 <input id="urc-view-agenda" type="radio" name="view" value="agenda" onChange={this.modeChange} checked={this.state.selectedMode === 'agenda'}/>
                 <label htmlFor="urc-view-agenda">Agenda</label>
-            </form>
-        </div>;
-        let startHour = 9;
-        let endHour = 24;
-
-        return (
+              </form>
+            </div>
             <UltraResponsiveCalendar
-                header={headerContent}
                 days={this.state.multiViewDays}
                 startDate={moment()}
                 dayStartHour={startHour}
@@ -137,6 +136,7 @@ export default class SampleApp extends Component {
                 viewType={this.state.viewMode}
                 events={this.state.events}
             />
+          </div>
         )
     }
 

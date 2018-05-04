@@ -1,7 +1,7 @@
 export default class EventCollection {
 
     constructor(events) {
-        this.events = (events) ? events : [];
+        this.events = events || [];
     }
 
     addEvent(event) {

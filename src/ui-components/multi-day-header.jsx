@@ -18,7 +18,7 @@ export default class MultiDayHeader extends React.Component {
     };
 
     return (
-      <div className="urc-multi-day-header" style={styles}>
+      <div className="multi-day-header" style={styles}>
         {titles}
       </div>
     )

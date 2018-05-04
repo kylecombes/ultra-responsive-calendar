@@ -3,7 +3,7 @@ import moment from 'moment';
 import SideLabel from "./side-label.jsx";
 import CalendarColumn from "./column.jsx";
 import PropTypes from 'prop-types';
-import EventCollection from '../models/calendar-event-collection';
+import EventCollection from '../models/event-collection';
 import MultiDayHeader from './multi-day-header';
 
 export default class MultiDayView extends React.Component {
@@ -20,7 +20,7 @@ export default class MultiDayView extends React.Component {
         const hoursInDay = this.props.dayEndHour - this.props.dayStartHour;
         let horzLines = [];
         for (let i = 0; i < hoursInDay; ++i) {
-            horzLines.push(<div key={i} className="urc-horizontal-line"/>);
+            horzLines.push(<div key={i} className="urc horizontal-line"/>);
         }
 
         for (let i = 0; i < this.props.days; ++i) {
@@ -47,7 +47,7 @@ export default class MultiDayView extends React.Component {
               marginLeft="4rem"
             />}
           <div className="urc-calendar-container">
-            <div className="urc-horizontal-lines-container">
+            <div className="urc horizontal-lines-container">
               {horzLines}
             </div>
             <SideLabel startHour={this.props.dayStartHour} endHour={this.props.dayEndHour}/>
