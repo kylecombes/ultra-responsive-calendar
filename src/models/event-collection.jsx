@@ -1,7 +1,9 @@
+import deepcopy from 'deepcopy';
+
 export default class EventCollection {
 
     constructor(events) {
-        this.events = events || [];
+        this.events = events ? deepcopy(events) : [];
     }
 
     addEvent(event) {
